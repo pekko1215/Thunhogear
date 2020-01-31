@@ -1,0 +1,161 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>パチスロ 戦姫絶唱ツンホギア</title>
+    <script>
+        let lastTouch = 0;
+        document.addEventListener('touchend', event => {
+            const now = window.performance.now();
+            if (now - lastTouch <= 500) {
+                event.preventDefault();
+            }
+            lastTouch = now;
+        }, true);
+    </script>
+</head>
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" href="c3.min.css">
+
+<body> <img src="img/panel.png">
+    <div id="pixiview"></div>
+    <br>
+    <input id="cleardata" type="button" value="データのリセット" />
+
+    <button class="debug" onclick="power='リーチ目リプレイ'">強制リーチ目リプレイ</button>
+    <button class="debug" onclick="power='デュランダル'">強制デュランダル</button class="debug">
+    <button class="debug" onclick="ZesyoEffect()">強制絶唱</button class="debug">
+    <button class="debug" onclick="if(effectManeger.atData){effectManeger.atData.hitTables.unshift(true);sounder.playSound('voltageup')}else{alert('大当たり後におしてね')}">強制VStock追加</button class="debug">
+
+    <div id="test"></div>
+    <input id="autoPlay" type="button" value="オートプレイ" />
+    <canvas id="creditSegment" width="120px" height="74px"></canvas>
+    <canvas id="paySegment" width="120px" height="74px"></canvas>
+    <canvas id="effectSegment" width="100px" height="74px"></canvas>
+    <div class="mark"></div>
+    <div class="GameData"> </div>
+    <img src="img/lamp/kokutiFlash.png" id="kokuti" class="lamp">
+
+    <div id="display">
+        <div id="obi">
+            <span id="obiText">最終決戦 準備中...</span>
+        </div>
+        <div id="nabiSpace" style="display: none">
+            <img id="nabi1" class="nabi normal" src="img/nabi/1.png">
+            <img id="nabi2" class="nabi normal" src="img/nabi/2.png">
+            <img id="nabi3" class="nabi normal" src="img/nabi/3.png">
+            <img id="chance1" class="nabi chance" src="img/nabi/chance.png">
+            <img id="chance2" class="nabi chance" src="img/nabi/chance.png">
+            <img id="chance3" class="nabi chance" src="img/nabi/chance.png">
+        </div>
+        <img src="img/display/saisyu.png" id="displaySaisyu" class="displayObject">
+        <img src="img/display/rush.png" id="displayRush" class="displayObject">
+        <img src="img/display/fine.png" id="displayFine" class="displayObject">
+        <img src="img/display/rushStart.png" id="displayRushStart" class="displayObject">
+        <img src="img/display/bigBonus.png" id="displayBigBonus" class="displayObject">
+        <img src="img/display/bigBonusGold.png" id="displayBigBonusGold" class="displayObject">
+        <img src="img/display/regBonus.png" id="displayRegBonus" class="displayObject">
+        <img src="img/display/regBonusGold.png" id="displayRegBonusGold" class="displayObject">
+        <div id="displayVStock" class="displayObject">
+            <img src="img/display/vStock.png">
+            <div id="vStockCount">3</div>
+        </div>
+        <div id="displayCounter" class="displayObject">
+            <div id="coinCounter"></div>
+            <div id="renCounter"></div>
+        </div>
+        <div id="displayResult">
+            <div id="feverTextResult">FE<span>V</span>ER</div>
+            <div id="feverResult">×32</div>
+            <br>
+            <div id="totalReuslt">TOTAL</div>
+            <div id="coinResult">1892</div>
+            <div id="getReuslt">GET</div>
+        </div>
+        <div id="displayGet" class="displayObject">
+            GET 12
+        </div>
+        <div id="displayVStockCount" class="displayObject">
+            <img src="img/display/vIcon.png">
+            <span>×3</span>
+        </div>
+        <div id="displayMaxCount">1999/2400</div>
+        <img src="img/display/zesyo/1.png" class="face" id="displayZesyoFace1">
+        <img src="img/display/zesyo/2.png" class="face" id="displayZesyoFace2">
+        <img src="img/display/zesyo/3.png" class="face" id="displayZesyoFace3">
+        <img src="img/display/zesyo/4.png" class="face" id="displayZesyoFace4">
+        <img src="img/display/zesyo/5.png" class="face" id="displayZesyoFace5">
+        <img src="img/display/zesyo/6.png" class="face" id="displayZesyoFace6">
+        <img src="img/display/zesyo/maxget.png" class="displayObject" id="displayMaxGet">
+        <div id="displayZe" class="displayObject">絶</div>
+        <div id="displaySyo" class="displayObject">唱</div>
+        <img src="img/display/de.png" id="displayDe" class="displayDe"></div>
+    </div>
+    <div class="rt-lamp" id="leftRtLamp"></div>
+    <div class="rt-lamp" id="rightRtLamp"></div>
+
+    <!-- <div id="chart" style="width:939px;border:solid 1px;"></div> -->
+    <div id="dataCounter">
+        <!-- <div class="tower">
+            <div class="floor"></div>
+            <div class="floor"></div>
+            <div class="floor"></div>
+            <div class="floor"></div>
+            <div class="floor"></div>
+            <div class="floor"></div>
+            <div class="floor"></div>
+            <div class="type">REG</div>
+            <div class="count">678</div>
+        </div>
+        <div class="tower">
+            <div class="floor"></div>
+            <div class="floor"></div>
+            <div class="type">BIG</div>
+            <div class="count">123</div>
+        </div>
+        <div class="tower">
+            <div class="floor"></div>
+            <div class="floor"></div>
+            <div class="floor"></div>
+            <div class="type">BIG</div>
+            <div class="count">280</div>
+        </div> -->
+    </div>
+    <div id="slotLogs">
+    </div>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="/modulejs/c3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.8.8/pixi.min.js"></script>
+    <script src="modulejs/jquery-3.2.1.js"></script>
+    <script src="modulejs/SevenSegment.js"></script>
+    <script src="originjs/keyboard.js"></script>
+    <script src="originjs/SegmentControler.js"></script>
+    <script src="originjs/BinaryOption.js"></script>
+    <script src="modulejs/typewriter.js"></script>
+    <script src="data/control.js"></script>
+    <script src="data/keyconfig.js"></script>
+    <script src="data/flashdata.js"></script>
+    <script src="data/yakudata.js"></script>
+    <script src="data/paneldata.js"></script>
+    <script src="data/lotdata.js"></script>
+    <script src="data/BonusData.js"></script>
+    <script src="data/rtData.js"></script>
+    <script src="originjs/SlotModuleMK2.5.js"></script>
+    <script src="originjs/Lottery.js"></script>
+    <script src="originjs/Sounder.js"></script>
+    <script src="originjs/reelControlData.js"></script>
+    <script src="modulejs/marked.min.js"></script>
+    <script src="originjs/SlotCodeOutputer.js"></script>
+    <script src="originjs/OnlineSlotModule.js"></script>
+    <script src="originjs/reelControlRequester.js"></script>
+    <script type="text/javascript" src="originjs/effect.js"></script>
+    <script type="text/javascript" src="originjs/appmain.js"></script>
+    <script>
+        if(location.search.includes('debug')){
+            $('.debug').removeClass('debug')
+        }
+    </script>
+</body>
+
+</html>

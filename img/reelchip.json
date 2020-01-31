@@ -1,0 +1,193 @@
+{
+    "meta": {
+        "image": "reelchip2.png",
+        "format": "RGBA8888",
+        "size": {
+            "w": 197,
+            "h": 588
+        },
+        "scale": 1
+    },
+    "frames": {
+        "reelchip0": {
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 197,
+                "h": 84
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spritSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 197,
+                "h": 84
+            },
+            "sourceSize": {
+                "w": 197,
+                "h": 84
+            }
+        },
+        "reelchip1": {
+            "frame": {
+                "x": 0,
+                "y": 84,
+                "w": 197,
+                "h": 84
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spritSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 197,
+                "h": 84
+            },
+            "sourceSize": {
+                "w": 197,
+                "h": 84
+            }
+        },
+        "reelchip2": {
+            "frame": {
+                "x": 0,
+                "y": 168,
+                "w": 197,
+                "h": 84
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spritSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 197,
+                "h": 84
+            },
+            "sourceSize": {
+                "w": 197,
+                "h": 84
+            }
+        },
+        "reelchip3": {
+            "frame": {
+                "x": 0,
+                "y": 252,
+                "w": 197,
+                "h": 84
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spritSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 197,
+                "h": 84
+            },
+            "sourceSize": {
+                "w": 197,
+                "h": 84
+            }
+        },
+        "reelchip4": {
+            "frame": {
+                "x": 0,
+                "y": 336,
+                "w": 197,
+                "h": 84
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spritSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 197,
+                "h": 84
+            },
+            "sourceSize": {
+                "w": 197,
+                "h": 84
+            }
+        },
+        "reelchip5": {
+            "frame": {
+                "x": 0,
+                "y": 420,
+                "w": 197,
+                "h": 84
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spritSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 197,
+                "h": 84
+            },
+            "sourceSize": {
+                "w": 197,
+                "h": 84
+            }
+        },
+        "reelchip6": {
+            "frame": {
+                "x": 0,
+                "y": 504,
+                "w": 197,
+                "h": 84
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spritSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 197,
+                "h": 84
+            },
+            "sourceSize": {
+                "w": 197,
+                "h": 84
+            }
+        },
+        "reelchip7": {
+            "frame": {
+                "x": 0,
+                "y": 588,
+                "w": 197,
+                "h": 84
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spritSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 197,
+                "h": 84
+            },
+            "sourceSize": {
+                "w": 197,
+                "h": 84
+            }
+        },
+        "reelchip8": {
+            "frame": {
+                "x": 0,
+                "y": 672,
+                "w": 197,
+                "h": 84
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spritSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 197,
+                "h": 84
+            },
+            "sourceSize": {
+                "w": 197,
+                "h": 84
+            }
+        }
+    }
+}
