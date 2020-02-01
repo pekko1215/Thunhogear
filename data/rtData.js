@@ -21,7 +21,7 @@ class RT {
 class DefaultRT extends RT {
     constructor() {
         super();
-        console.log(this.constructor.name + 'へ以降');
+        console.log(this.constructor.name + 'へ移行');
         this.rt = null;
         $('.rt-lamp').css({ background: 'black' })
     }
@@ -42,7 +42,7 @@ class HighBaseRT extends RT {
     constructor() {
         super();
         $('.rt-lamp').css({ background: 'blue' })
-        console.log(this.constructor.name + 'へ以降');
+        console.log(this.constructor.name + 'へ移行');
         this.rt = null;
     }
     hitCheck(hit) {
@@ -69,8 +69,8 @@ class HighBaseRT extends RT {
 class HighRT1 extends RT {
     constructor() {
         super();
-        console.log(this.constructor.name + 'へ以降');
-        SlotLog('リーチ目高確率RT 1へ以降');
+        console.log(this.constructor.name + 'へ移行');
+        SlotLog('リーチ目高確率RT 1へ移行');
         $('.rt-lamp').css({ background: 'green' })
         this.rt = 5;
     }
@@ -94,8 +94,8 @@ class HighRT1 extends RT {
 class HighRT2 extends RT {
     constructor() {
         super();
-        console.log(this.constructor.name + 'へ以降');
-        SlotLog('リーチ目高確率RT 2へ以降');
+        console.log(this.constructor.name + 'へ移行');
+        SlotLog('リーチ目高確率RT 2へ移行');
         $('.rt-lamp').css({ background: 'red' })
         this.rt = 8;
     }
